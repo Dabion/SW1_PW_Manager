@@ -30,20 +30,17 @@ public class PasswordManager {
             int input = scan.nextInt();
             switch (input) {
                 case 1: {
-                    // Use scanner to take input
-                    System.out.println("Enter website (Ex. google.com): ");
-                    Scanner sc1 = new Scanner(System.in);
-                    String web = sc1.next();
-                    // Use scanner to take input
-                    System.out.println("Enter username: ");
-                    Scanner sc2 = new Scanner(System.in);
-                    String usnm = sc2.next();
-                    // Use scanner to take input
-                    System.out.println("Enter password: ");
-                    Scanner sc3 = new Scanner(System.in);
-                    String pass = sc3.next();
                     // call method to add inputs to HashMap
-                    passwords.put(new String(web), new ArrayList<>(Arrays.asList(usnm, pass)));
+                    AddEntry(passwords);
+                    System.out.println("Return to Main Menu(y) or Exit(n)");
+                    Scanner sc = new Scanner(System.in);
+                    String back = sc.next();
+
+                    if (back.toLowerCase().equals("y")) {
+                        break;
+                    } else if (back.toLowerCase().equals("n")) {
+                        loopEnd = 0;
+                    }
                     break;
                 }
 
@@ -135,4 +132,21 @@ public class PasswordManager {
         }
         //sc.close();
     }
+
+    public static void AddEntry(HashMap<String, ArrayList<String>> passwords) {
+        // Use scanner to take input
+        System.out.println("Enter website (Ex. google.com): ");
+        Scanner sc1 = new Scanner(System.in);
+        String web = sc1.next();
+        // Use scanner to take input
+        System.out.println("Enter username: ");
+        Scanner sc2 = new Scanner(System.in);
+        String usnm = sc2.next();
+        // Use scanner to take input
+        System.out.println("Enter password: ");
+        Scanner sc3 = new Scanner(System.in);
+        String pass = sc3.next();
+        passwords.put(new String(web), new ArrayList<>(Arrays.asList(usnm, pass)));
+    }
+
 }
