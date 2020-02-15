@@ -32,11 +32,18 @@ public class PasswordManager {
                 case 1: {
                     // Use scanner to take input
                     System.out.println("Enter website (Ex. google.com): ");
+                    Scanner sc1 = new Scanner(System.in);
+                    String web = sc1.next();
                     // Use scanner to take input
                     System.out.println("Enter username: ");
+                    Scanner sc2 = new Scanner(System.in);
+                    String usnm = sc2.next();
                     // Use scanner to take input
-                    System.out.println("Enter username: ");
+                    System.out.println("Enter password: ");
+                    Scanner sc3 = new Scanner(System.in);
+                    String pass = sc3.next();
                     // call method to add inputs to HashMap
+                    passwords.put(new String(web), new ArrayList<>(Arrays.asList(usnm, pass)));
                     break;
                 }
 
